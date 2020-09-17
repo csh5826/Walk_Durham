@@ -15,19 +15,18 @@ class Details extends Component {
 
     //will want to make mapping loop of our detail listings
     renderDestinations(destinationData) {
-        console.log("destination data", destinationData)
+        // console.log("destination data", destinationData)
         const name = destinationData.name;
         let distance = destinationData.dist;
         const id = destinationData.xid;
-        console.log('name', name, 'distance', distance) 
+        // console.log('name', name, 'distance', distance) 
         distance = Math.round((distance * .0006) * 100)/100
         return (
             <li key={id}>{name} distance: {distance} miles from you</li>
         )
     }
     render(){
-        console.log('this is what we are looking for:', this.props.destinations)
-        
+        // console.log('this is what we are looking for:', this.props.destinations)
         return (
             <div>
                 <div className="kinds">

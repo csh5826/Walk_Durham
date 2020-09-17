@@ -15,14 +15,29 @@ import { bindActionCreators } from "redux";
  class App extends Component {
      constructor(props) {
          super(props);
-
+        
+         this.state = {selectedOptionDestination: "bars", selectedOptionDistance: "1610"}
          this.handleClick = this.handleClick.bind(this);
+         this.handleOptionChangeDestination = this.handleOptionChangeDestination.bind(this);
+         this.handleOptionChangeDistance = this.handleOptionChangeDistance.bind(this);
      }
 
    handleClick(){
-     this.props.fetchDestination();
+     this.props.fetchDestination(this.state.selectedOptionDistance, this.state.selectedOptionDestination );
      this.props.history.push("/details")
    }
+
+   handleOptionChangeDestination (changeEvent) {
+    this.setState({
+        selectedOptionDestination: changeEvent.target.value
+    });
+   };
+
+   handleOptionChangeDistance (changeEvent) {
+    this.setState({
+        selectedOptionDistance: changeEvent.target.value
+    });
+   };
 
     render() {
         return (
@@ -38,8 +53,8 @@ import { bindActionCreators } from "redux";
                                 type="radio"
                                 name="react-tips"
                                 value="bars"
-                                checked={this.state.selectedOption === "option1"}
-                                onChange={this.handleOptionChange}
+                                checked={this.state.selectedOptionDestination === "bars"}
+                                onChange={this.handleOptionChangeDestination}
                                 className="form-check-input"
                             />
                             the pub
@@ -52,8 +67,8 @@ import { bindActionCreators } from "redux";
                                 type="radio"
                                 name="react-tips"
                                 value="gardens_and_parks"
-                                checked={this.state.selectedOption === "option2"}
-                                onChange={this.handleOptionChange}
+                                checked={this.state.selectedOptionDestination === "gardens_and_parks"}
+                                onChange={this.handleOptionChangeDestination}
                                 className="form-check-input"
                             />
                             the park
@@ -66,8 +81,8 @@ import { bindActionCreators } from "redux";
                                 type="radio"
                                 name="react-tips"
                                 value="museums"
-                                checked={this.state.selectedOption === "option3"}
-                                onChange={this.handleOptionChange}
+                                checked={this.state.selectedOptionDestination === "museums"}
+                                onChange={this.handleOptionChangeDestination}
                                 className="form-check-input"
                             />
                             a museum
@@ -88,8 +103,8 @@ import { bindActionCreators } from "redux";
                                 type="radio"
                                 name="react-tips"
                                 value="1610"
-                                checked={this.state.selectedOption === "option1"}
-                                onChange={this.handleOptionChange}
+                                checked={this.state.selectedOptionDistance === "1610"}
+                                onChange={this.handleOptionChangeDistance}
                                 className="form-check-input"
                             />
                             1 mile
@@ -102,8 +117,8 @@ import { bindActionCreators } from "redux";
                                 type="radio"
                                 name="react-tips"
                                 value="4828"
-                                checked={this.state.selectedOption === "option2"}
-                                onChange={this.handleOptionChange}
+                                checked={this.state.selectedOptionDistance === "4828"}
+                                onChange={this.handleOptionChangeDistance}
                                 className="form-check-input"
                             />
                             3 miles
@@ -116,8 +131,8 @@ import { bindActionCreators } from "redux";
                                 type="radio"
                                 name="react-tips"
                                 value="8047"
-                                checked={this.state.selectedOption === "option3"}
-                                onChange={this.handleOptionChange}
+                                checked={this.state.selectedOptionDistance === "8047"}
+                                onChange={this.handleOptionChangeDistance}
                                 className="form-check-input"
                             />
                             5 miles
