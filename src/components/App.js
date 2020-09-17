@@ -9,7 +9,7 @@ import { Component } from 'react';
 import { fetchDestination } from '../actions';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { Link } from "react-router-dom";
+
 
 
  class App extends Component {
@@ -56,7 +56,7 @@ import { Link } from "react-router-dom";
 
 }
 function mapStateToProps(state) {
-    console.log(state)
+    // console.log(state)
     return { destinations: state.destinations}
 }
 

@@ -14,16 +14,29 @@ class Details extends Component {
     //handles event that displays details-info
 
     //will want to make mapping loop of our detail listings
-    
+    renderDestinations(destinationData) {
+        console.log("destination data", destinationData)
+        const name = destinationData.name;
+        const distance = destinationData.dist;
+        const id = destinationData.xid;
+        console.log('name', name, 'distance', distance) 
+
+        return (
+            <li key={id}>{name}</li>
+        )
+    }
     render(){
+        console.log('this is what we are looking for:', this.props.destinations)
+        
         return (
             <div>
                 <div className="kinds">
                     <h3>all the pubs:</h3>
                     <ul>
-                        <li>pub 1</li>
+                        {/* <li>pub 1</li>
                         <li>pub 2</li>
-                        <li>pub 3</li>
+                        <li>pub 3</li> */}
+                        {this.props.destinations.map(this.renderDestinations)}
                     </ul>
                 </div>
 
