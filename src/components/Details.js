@@ -32,9 +32,6 @@ class Details extends Component {
                 <div className="kinds">
                     <h3>all the pubs:</h3>
                     <ul>
-                        {/* <li>pub 1</li>
-                        <li>pub 2</li>
-                        <li>pub 3</li> */}
                         {this.props.destinations.map(this.renderDestinations)}
                     </ul>
                 </div>

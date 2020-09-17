@@ -1,0 +1,12 @@
+1. UI App and Details page
+
+STRETCH GOAL: potential additional details
+
+2. Expand reach of search and filter
+ie - minimize overlap of entries and eliminate duplicates
+
+STRECH GOAL: when new topics are added , make sure they are filtered correctly
+
+3. research alternate topics/add them 
+- look into comboing pubs and bars within search to get more results
+- look into wiki links
