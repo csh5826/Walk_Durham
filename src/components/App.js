@@ -16,12 +16,14 @@ import { Link } from "react-router-dom";
      constructor(props) {
          super(props);
 
-         this.blankFunction = this.blankFunction.bind(this);
+         this.handleClick = this.handleClick.bind(this);
      }
 
-   blankFunction(){
-    this.props.fetchDestination();
+   handleClick(){
+     this.props.fetchDestination();
+     this.props.history.push("/details")
    }
+
 
 
     render() {
@@ -45,7 +47,7 @@ import { Link } from "react-router-dom";
                         <li>5 mile</li>
                     </ul>
 
-                    <Link to="/details">let's walk!</ Link>
+                    <button onClick={this.handleClick}>let's walk!</button>
                 </div>
 
             </div>
