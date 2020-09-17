@@ -9,6 +9,7 @@ import { Component } from 'react';
 import { fetchDestination } from '../actions';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import { Link } from "react-router-dom";
 
 
  class App extends Component {
@@ -37,14 +38,14 @@ import { bindActionCreators } from "redux";
                     </ul>
                 </div>
                 <div className="distance">
-                    <h3>How dar do you want to walk?</h3>
+                    <h3>How far do you want to walk?</h3>
                     <ul>
                         <li>1 mile</li>
                         <li>3 mile</li>
                         <li>5 mile</li>
                     </ul>
 
-                    <button>let's walk!</button>
+                    <Link to="/details">let's walk!</ Link>
                 </div>
 
             </div>
