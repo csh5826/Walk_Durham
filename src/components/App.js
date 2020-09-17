@@ -42,58 +42,66 @@ import { bindActionCreators } from "redux";
     render() {
         return (
             <div>
+                <div className="row bg-light">
                 <h1>Durham - get out there and walk!</h1>
-                <div className="destinations">
-                    <h3>Where do you want to go?</h3>
-                    <form>
+                </div>
+                <div className="row">
+                <div className="destinations col-md-3">
+                        <div className="border">
+                        <h3>Where do you want to go?</h3>
+                        <form>
+                            <div className="form-check">
+                                <label>
+                                <input
+                                    type="radio"
+                                    name="react-tips"
+                                    value="bars"
+                                    checked={this.state.selectedOptionDestination === "bars"}
+                                    onChange={this.handleOptionChangeDestination}
+                                    className="form-check-input"
+                                />
+                                the pub
+                                </label>
+                            </div>
 
-                        <div className="form-check">
-                            <label>
-                            <input
-                                type="radio"
-                                name="react-tips"
-                                value="bars"
-                                checked={this.state.selectedOptionDestination === "bars"}
-                                onChange={this.handleOptionChangeDestination}
-                                className="form-check-input"
-                            />
-                            the pub
-                            </label>
-                        </div>
+                            <div className="form-check">
+                                <label>
+                                <input
+                                    type="radio"
+                                    name="react-tips"
+                                    value="gardens_and_parks"
+                                    checked={this.state.selectedOptionDestination === "gardens_and_parks"}
+                                    onChange={this.handleOptionChangeDestination}
+                                    className="form-check-input"
+                                />
+                                the park
+                                </label>
+                            </div>
 
-                        <div className="form-check">
-                            <label>
-                            <input
-                                type="radio"
-                                name="react-tips"
-                                value="gardens_and_parks"
-                                checked={this.state.selectedOptionDestination === "gardens_and_parks"}
-                                onChange={this.handleOptionChangeDestination}
-                                className="form-check-input"
-                            />
-                            the park
-                            </label>
-                        </div>
-
-                        <div className="form-check">
-                            <label>
-                            <input
-                                type="radio"
-                                name="react-tips"
-                                value="museums"
-                                checked={this.state.selectedOptionDestination === "museums"}
-                                onChange={this.handleOptionChangeDestination}
-                                className="form-check-input"
-                            />
-                            a museum
-                            </label>
-                        </div>
+                            <div className="form-check">
+                                <label>
+                                <input
+                                    type="radio"
+                                    name="react-tips"
+                                    value="museums"
+                                    checked={this.state.selectedOptionDestination === "museums"}
+                                    onChange={this.handleOptionChangeDestination}
+                                    className="form-check-input"
+                                />
+                                a museum
+                                </label>
+                            </div>
+                       
 
 
                     </form>
-                    
-                </div>
-                <div className="distance">
+                    </div>
+                    </div>
+                   
+                
+                <div className="distance pt-5">
+                <div className="col-md-8">
+                <div className="border mt-5 p-1">
                     <h3>How far do you want to walk?</h3>
                     <form>
 
@@ -138,14 +146,16 @@ import { bindActionCreators } from "redux";
                             5 miles
                             </label>
                         </div>
-
-
-                    </form>
-
-                    <button onClick={this.handleClick}>let's walk!</button>
+                        </form>
+                        </div></div>
+                <div className="col-sm">
+                <button className="float-right" onClick={this.handleClick}>let's walk!</button>
+                </div>
                 </div>
 
             </div>
+            </div>
+            
         )
     }
 
