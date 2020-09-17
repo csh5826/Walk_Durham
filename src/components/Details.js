@@ -1,0 +1,1 @@
+// incapsulates our entire /details page

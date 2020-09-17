@@ -1,0 +1,1 @@
+//will include our destination photo as well as text describing the destination
