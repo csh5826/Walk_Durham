@@ -17,12 +17,12 @@ class Details extends Component {
     renderDestinations(destinationData) {
         console.log("destination data", destinationData)
         const name = destinationData.name;
-        const distance = destinationData.dist;
+        let distance = destinationData.dist;
         const id = destinationData.xid;
         console.log('name', name, 'distance', distance) 
-
+        distance = Math.round((distance * .0006) * 100)/100
         return (
-            <li key={id}>{name}</li>
+            <li key={id}>{name} distance: {distance} miles from you</li>
         )
     }
     render(){
