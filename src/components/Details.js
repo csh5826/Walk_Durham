@@ -2,46 +2,52 @@
 
 import React from 'react';
 import { Component } from 'react';
-import { fetchDestination } from '../actions';
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
 import { Link } from "react-router-dom";
+import _ from "lodash";
 
 class Details extends Component {
-    constructor(props){
-        super(props)
-    }
-    //handles event that displays details-info
+    constructor(props) {
+        super(props);
 
-    //will want to make mapping loop of our detail listings
+        this.renderDestinations = this.renderDestinations.bind(this);
+    }
+
+
+   
+
     renderDestinations(destinationData) {
-        // console.log("destination data", destinationData)
+        console.log("destination data", destinationData)
         const name = destinationData.name;
         let distance = destinationData.dist;
         const id = destinationData.xid;
         // console.log('name', name, 'distance', distance) 
-        distance = Math.round((distance * .0006) * 100)/100
+        distance = Math.round((distance * .0006) * 100) / 100        
         return (
             <li key={id}>{name} distance: {distance} miles from you</li>
         )
     }
+
+
     render(){
-        // console.log('this is what we are looking for:', this.props.destinations)
+        const uniqueDestinations = (_.uniqBy(this.props.destinations, 'name'));
+        uniqueDestinations.reverse();
+        const uniqFilteredDestinations =  uniqueDestinations.filter((element) => {
+            return element.rate !== 0;
+        })
+
         return (
             <div>
                 <div className="kinds">
-                    <h3>all the pubs:</h3>
+                    <h3>your destinations!</h3>
                     <ul>
-                        {this.props.destinations.map(this.renderDestinations)}
+                        {uniqFilteredDestinations.map(this.renderDestinations)}
                     </ul>
                 </div>
-
                 <Link to="/">Back</Link>
-
             </div>
         )
     }
-
 }
 
 function mapStateToProps (state) {
