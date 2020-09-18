@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
 import mapboxgl from 'mapbox-gl';
+import { Marker } from 'mapbox-gl';
 
 mapboxgl.accessToken='pk.eyJ1IjoiY3NoNTgyNiIsImEiOiJja2Y4ODRnbm0wNmRmMnlvMzJsZHllYWNmIn0.ahh2fZ9MyzBjG2ZAmfRzoQ'
 
@@ -37,6 +38,11 @@ class Details extends Component {
           zoom: map.getZoom().toFixed(2)
           });
       });
+    
+    const marker = new mapboxgl.Marker()
+    .setLngLat([  -78.901318, 35.995930 ])
+    .addTo(map);
+      
     }
 
   renderDestinations(destinationData) {
@@ -52,6 +58,8 @@ class Details extends Component {
       </li>
     );
   }
+
+  
 
   render() {
     console.log('this works perfectly', this.props.selectedRadius);
@@ -85,6 +93,13 @@ class Details extends Component {
             </div>
               <div ref={el => this.mapContainer = el} className='mapContainer' />
             </div>
+            </div>
+            <div>
+              {/* <Marker
+              coordinates={[-78.9032316, 35.9962091]}
+              anchor="bottom">
+              <div class="mapMarkerStyle"></div>
+              </Marker> */}
             </div>
           </div>
         </div>
