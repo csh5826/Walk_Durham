@@ -43,11 +43,13 @@ import { bindActionCreators } from "redux";
         return (
             <div>
                 <div className="row bg-light">
+                    <div className="col">
                 <h1>Durham - get out there and walk!</h1>
+                </div>
                 </div>
                 <div className="row">
                 <div className="destinations col-md-3">
-                        <div className="card border rounded-sm shadow-lg mt-5 p-2">
+                        <div className="pscard border rounded-sm shadow-lg mt-5 p-2">
                         <h3>Where do you want to go?</h3>
                         <form>
                             <div className="form-check">
@@ -101,7 +103,7 @@ import { bindActionCreators } from "redux";
                 
                 <div className="distance pt-5">
                 <div className="col-md-8">
-                <div className="card border rounded-sm shadow-lg mt-5 p-2">
+                <div className="pscard border rounded-sm shadow-lg mt-5 p-2">
                     <h3>How far do you want to walk?</h3>
                     <form>
 
@@ -149,7 +151,7 @@ import { bindActionCreators } from "redux";
                         </form>
                         </div></div>
                 <div className="col-sm">
-                <button className="float-right" onClick={this.handleClick}>let's walk!</button>
+                <h3><button className="float-right btn badge badge-light" onClick={this.handleClick}>let's walk!</button></h3>
                 </div>
                 </div>
 

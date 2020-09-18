@@ -75,8 +75,12 @@ a:hover,a:focus{
   margin-bottom: 0;
 }
 
-.card{
-  font-size: 14px;
+label {
+  padding-left: 1em;
+}
+
+.pscard{
+  font-size: 20px;
   color: #6f6c6c;
   line-height: 26px;
   background: #efe8d5

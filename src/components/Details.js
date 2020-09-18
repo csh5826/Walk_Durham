@@ -29,14 +29,24 @@ class Details extends Component {
         // console.log('this is what we are looking for:', this.props.destinations)
         return (
             <div>
-                <div className="kinds">
+                <div className="row bg-light">
+                    <div className="col">
+                <h1>Durham - get out there and walk!</h1>
+                </div>
+                </div>
+                <div className="row">
+                <div className="pscard col-4 border rounded-sm shadow-lg mt-5 p-2">
                     <h3>all the pubs:</h3>
                     <ul>
                         {this.props.destinations.map(this.renderDestinations)}
                     </ul>
+                    <h3><Link to="/" className="float-right badge badge-light">Back</Link></h3>
                 </div>
-
-                <Link to="/">Back</Link>
+                <div className="col">
+                    <div className="pscard border rounded-sm shadow-lg mt-5 p-2">Extra Box</div>
+                </div>
+                </div>
+                
 
             </div>
         )
