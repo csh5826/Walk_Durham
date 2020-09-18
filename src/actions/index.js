@@ -19,3 +19,5 @@ export function fetchDestination(radius, kinds) {
         payload: request
     }
 }
+
+//sent to reducers to fetch data

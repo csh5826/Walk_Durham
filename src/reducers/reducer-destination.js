@@ -11,3 +11,5 @@ export default function(state = [], action) {
     }
 
 }
+
+//data sent to details.js
