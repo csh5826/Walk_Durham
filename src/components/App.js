@@ -26,32 +26,13 @@ class App extends Component {
     this.handleOptionChangeDistance = this.handleOptionChangeDistance.bind(
       this
     );
-    // this.setDistanceToDisplay = this.setDistanceToDisplay.bind(this);
   }
-
-  //export this so it can be imported to Details.js
- 
- /* 
-  setDistanceToDisplay(radius) {
-
-
-
-    console.log('setting distance', radius);
-    if (radius === 2500) {
-      //return all results
-    } else if (radius === 5700) {
-      //return results with radius from 2500 to 5700
-    } else {
-      //return results with radius from 5700 to 9000
-    }
-  } */
 
   handleClick() {
     this.props.fetchDestination(
       this.state.selectedOptionDistance,
       this.state.selectedOptionDestination
     );
-    // this.setDistanceToDisplay(this.state.selectedOptionDistance);
     this.props.sendDistance(this.state.selectedOptionDistance);
     this.props.history.push('/details');
   }
@@ -169,8 +150,8 @@ class App extends Component {
                       <input
                         type='radio'
                         name='react-tips'
-                        value='9000'
-                        checked={this.state.selectedOptionDistance === '9000'}
+                        value='10000'
+                        checked={this.state.selectedOptionDistance === '10000'}
                         onChange={this.handleOptionChangeDistance}
                         className='form-check-input'
                       />
