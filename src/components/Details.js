@@ -94,13 +94,6 @@ class Details extends Component {
               <div ref={el => this.mapContainer = el} className='mapContainer' />
             </div>
             </div>
-            <div>
-              {/* <Marker
-              coordinates={[-78.9032316, 35.9962091]}
-              anchor="bottom">
-              <div class="mapMarkerStyle"></div>
-              </Marker> */}
-            </div>
           </div>
         </div>
     );
