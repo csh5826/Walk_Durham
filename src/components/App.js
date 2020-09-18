@@ -7,6 +7,7 @@
 import React from 'react';
 import { Component } from 'react';
 import { fetchDestination } from '../actions';
+import { sendDistance } from '../actions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -25,11 +26,16 @@ class App extends Component {
     this.handleOptionChangeDistance = this.handleOptionChangeDistance.bind(
       this
     );
-    this.setDistanceToDisplay = this.setDistanceToDisplay.bind(this);
+    // this.setDistanceToDisplay = this.setDistanceToDisplay.bind(this);
   }
 
   //export this so it can be imported to Details.js
+ 
+ /* 
   setDistanceToDisplay(radius) {
+
+
+
     console.log('setting distance', radius);
     if (radius === 2500) {
       //return all results
@@ -38,14 +44,15 @@ class App extends Component {
     } else {
       //return results with radius from 5700 to 9000
     }
-  }
+  } */
 
   handleClick() {
     this.props.fetchDestination(
       this.state.selectedOptionDistance,
       this.state.selectedOptionDestination
     );
-    this.setDistanceToDisplay(this.state.selectedOptionDistance);
+    // this.setDistanceToDisplay(this.state.selectedOptionDistance);
+    this.props.sendDistance(this.state.selectedOptionDistance);
     this.props.history.push('/details');
   }
 
@@ -189,11 +196,13 @@ class App extends Component {
   }
 }
 function mapStateToProps(state) {
-  return { destinations: state.destinations };
+  return { destinations: state.destinations,
+    selectedRadius: state.selectedRadius };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchDestination }, dispatch);
+  return bindActionCreators({ sendDistance, fetchDestination }, dispatch);
+
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

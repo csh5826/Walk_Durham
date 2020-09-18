@@ -28,6 +28,7 @@ class Details extends Component {
   }
 
   render() {
+    console.log('this works perfectly', this.props.selectedRadius);
     const uniqueDestinations = _.uniqBy(this.props.destinations, 'name');
     uniqueDestinations.reverse();
     const uniqFilteredDestinations = uniqueDestinations.filter((element) => {
@@ -63,6 +64,7 @@ class Details extends Component {
 }
 
 function mapStateToProps(state) {
-  return { destinations: state.destinations };
+  return { destinations: state.destinations,
+  selectedRadius: state.distance };
 }
 export default connect(mapStateToProps)(Details);
