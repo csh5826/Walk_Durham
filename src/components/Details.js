@@ -28,7 +28,7 @@ class Details extends Component {
   actionsTriggered() {
     fetchDestination(this.props.filterRadius, this.props.filterRadius);
   }
-  
+
   componentDidMount() {
     const map = new mapboxgl.Map({
     container: this.mapContainer,
@@ -85,7 +85,7 @@ class Details extends Component {
     const uniqFilteredDestinations = uniqueDestinations.filter((element) => {
       return element.rate !== 0;
     });
-
+    this.actionsTriggered();
     return (
       <div>
         <div className='row bg-light'>
