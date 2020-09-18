@@ -25,6 +25,10 @@ class Details extends Component {
     this.renderDestinations = this.renderDestinations.bind(this);
   }
 
+  actionsTriggered() {
+    fetchDestination(this.props.filterRadius, this.props.filterRadius);
+  }
+  
   componentDidMount() {
     const map = new mapboxgl.Map({
     container: this.mapContainer,
