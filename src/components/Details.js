@@ -4,6 +4,9 @@ import React from 'react';
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { fetchDestination } from '../actions'
+import { bindActionCreators } from 'redux';
+
 import _ from 'lodash';
 import mapboxgl from 'mapbox-gl';
 
@@ -53,8 +56,26 @@ class Details extends Component {
     );
   }
 
+   /* 
+  setDistanceToDisplay(radius) {
+
+
+
+    console.log('setting distance', radius);
+    if (radius === 2500) {
+      //return all results
+    } else if (radius === 5700) {
+      //return results with radius from 2500 to 5700
+    } else {
+      //return results with radius from 5700 to 9000
+    }
+  } */
+
+
   render() {
     console.log('this works perfectly', this.props.selectedRadius);
+    console.log('this is more tricky', this.props.filterRadius);
+    console.log('this is the best one ', this.props.filterDestination);
     const uniqueDestinations = _.uniqBy(this.props.destinations, 'name');
     uniqueDestinations.reverse();
     const uniqFilteredDestinations = uniqueDestinations.filter((element) => {
@@ -93,7 +114,20 @@ class Details extends Component {
 }
 
 function mapStateToProps(state) {
-  return { destinations: state.destinations,
-  selectedRadius: state.distance };
+  return { 
+    destinations: state.destinations,
+    selectedRadius: state.distance,  // deprecated value
+    filterRadius: state.filters.radius,
+    filterDestination: state.filters.destination
+   };
 }
-export default connect(mapStateToProps)(Details);
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchDestination }, dispatch);
+// 
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Details);
+
+
+// need map state
+// need listeners

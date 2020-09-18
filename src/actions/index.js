@@ -2,6 +2,7 @@ import axios from "axios";
 
 export const FETCH_DESTINATIONS = "fetch_destinations";
 export const SEND_DISTANCE = "send_distance";
+export const SEND_FILTERS = "send_filters";
 
 const ROOT_URL = "https://api.opentripmap.com/0.1/en/places/";
 const API_KEY = "&apikey=5ae2e3f221c38a28845f05b6f59339d379a141fda53f5bd095ddcbb9";  
@@ -20,7 +21,17 @@ export function fetchDestination(radius, kinds) {
         payload: request
     }
 }
+export function sendFilters(radius, destination) {
+  console.log('rads ', radius);
+  console.log('dests', destination);
+  var cargo = { radius: radius, destination: destination };
+  console.log('cargo ', cargo);
+  return {
+    type: SEND_FILTERS,
+    payload: cargo
+  }
 
+}
 export function sendDistance(radius) {
   return {
     type: SEND_DISTANCE,
