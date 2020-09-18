@@ -17,7 +17,7 @@ class Details extends Component {
     this.state = {
       lng: -78.9032316,
       lat: 35.9962091,
-      zoom: 13.9
+      zoom: 14
     }
     this.renderDestinations = this.renderDestinations.bind(this);
   }
