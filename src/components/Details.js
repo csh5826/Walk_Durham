@@ -5,13 +5,39 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
+import mapboxgl from 'mapbox-gl';
+
+mapboxgl.accessToken='pk.eyJ1IjoiY3NoNTgyNiIsImEiOiJja2Y4ODRnbm0wNmRmMnlvMzJsZHllYWNmIn0.ahh2fZ9MyzBjG2ZAmfRzoQ'
+
 
 class Details extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      lng: -78.9032316,
+      lat: 35.9962091,
+      zoom: 13.9
+    }
     this.renderDestinations = this.renderDestinations.bind(this);
   }
+
+  componentDidMount() {
+    const map = new mapboxgl.Map({
+    container: this.mapContainer,
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center: [this.state.lng, this.state.lat],
+    zoom: this.state.zoom
+    });
+     
+      map.on('move', () => {
+        this.setState({
+          lng: map.getCenter().lng.toFixed(4),
+          lat: map.getCenter().lat.toFixed(4),
+          zoom: map.getZoom().toFixed(2)
+          });
+      });
+    }
 
   renderDestinations(destinationData) {
     console.log('destination data', destinationData);
@@ -53,11 +79,14 @@ class Details extends Component {
           </div>
           <div className='col'>
             <div className='pscard border rounded-sm shadow-lg mt-5 p-2'>
-              Extra Box
+            <div className='sidebarStyle'>
+              <div>Longitude: {this.state.lng} | Latitude: {this.state.lat} | Zoom: {this.state.zoom}</div>
+            </div>
+              <div ref={el => this.mapContainer = el} className='mapContainer' />
+            </div>
             </div>
           </div>
         </div>
-      </div>
     );
   }
 }
