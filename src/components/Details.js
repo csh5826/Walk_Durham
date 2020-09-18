@@ -1,4 +1,4 @@
-// incapsulates our entire /details page
+// encapsulates our entire /details page
 
 import React from 'react';
 import { Component } from 'react';

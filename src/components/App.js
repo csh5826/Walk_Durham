@@ -1,4 +1,4 @@
-// incapsulates our entire intitial page on load "/"
+// encapsulates our entire intitial page on load "/"
 
 // includes our options for picking our locations
 // destination (pubs, parks or museums)
@@ -177,13 +177,14 @@ class App extends Component {
   }
 }
 function mapStateToProps(state) {
-  return { destinations: state.destinations,
-    selectedRadius: state.selectedRadius };
+  return {
+    destinations: state.destinations,
+    selectedRadius: state.selectedRadius,
+  };
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ sendDistance, fetchDestination }, dispatch);
-
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
