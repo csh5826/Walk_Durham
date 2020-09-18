@@ -39,6 +39,9 @@ class Details extends Component {
         zoom: map.getZoom().toFixed(2),
       });
     });
+    const marker = new mapboxgl.Marker()
+    .setLngLat([  -78.901318, 35.995930 ])
+    .addTo(map);
   }
 
   renderDestinations(destinationData) {
