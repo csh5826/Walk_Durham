@@ -74,6 +74,13 @@ a:hover,a:focus{
 .tab .tab-content p{
   margin-bottom: 0;
 }
+
+.card{
+  font-size: 14px;
+  color: #6f6c6c;
+  line-height: 26px;
+  background: #efe8d5
+}
 /* @media only screen and (max-width: 480px){
   .tab .nav-tabs li{
       width: 100%;

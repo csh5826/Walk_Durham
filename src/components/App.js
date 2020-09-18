@@ -47,7 +47,7 @@ import { bindActionCreators } from "redux";
                 </div>
                 <div className="row">
                 <div className="destinations col-md-3">
-                        <div className="border">
+                        <div className="card border rounded-sm shadow-lg mt-5 p-2">
                         <h3>Where do you want to go?</h3>
                         <form>
                             <div className="form-check">
@@ -101,7 +101,7 @@ import { bindActionCreators } from "redux";
                 
                 <div className="distance pt-5">
                 <div className="col-md-8">
-                <div className="border mt-5 p-1">
+                <div className="card border rounded-sm shadow-lg mt-5 p-2">
                     <h3>How far do you want to walk?</h3>
                     <form>
 
